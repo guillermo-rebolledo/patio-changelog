@@ -5,6 +5,7 @@ const logger = require('morgan');
 const helmet = require('helmet');
 
 const indexRouter = require('./routes/index');
+const ghRouter = require('./routes/gh');
 
 const errorHandler = require('./middleware/errorHandler');
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', indexRouter);
+app.use('/gh', ghRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
